@@ -10,19 +10,19 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
-        dirX = Input.GetAxis("Horizontal");
-        dirY = Input.GetAxis("Vertical");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
+        dirX = Input.GetAxis("Horizontal");
+        dirY = Input.GetAxis("Vertical");
+        playerRigidBody.velocity = new Vector2(dirX * 7f, playerRigidBody.velocity.y);
 
         if (Input.GetButtonDown("Jump"))
         {
-            playerRigidBody.velocity = new Vector3(0, 9F, 0);
+            playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, 7F);
         }
     }
 }
